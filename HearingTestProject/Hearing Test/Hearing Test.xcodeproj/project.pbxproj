@@ -16,6 +16,8 @@
 		4F7481FD13C9E1A800F9526F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7481FB13C9E1A800F9526F /* MainWindow.xib */; };
 		4F74820013C9E1A800F9526F /* Hearing_TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7481FF13C9E1A800F9526F /* Hearing_TestViewController.m */; };
 		4F74820313C9E1A800F9526F /* Hearing_TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F74820113C9E1A800F9526F /* Hearing_TestViewController.xib */; };
+		4F81225613D0BAC800CE1BA4 /* HtWaveformPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F81225513D0BAC800CE1BA4 /* HtWaveformPlayer.m */; };
+		4F81226013D0DF2900CE1BA4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F81225F13D0DF2900CE1BA4 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,9 @@
 		4F7481FE13C9E1A800F9526F /* Hearing_TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hearing_TestViewController.h; sourceTree = "<group>"; };
 		4F7481FF13C9E1A800F9526F /* Hearing_TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hearing_TestViewController.m; sourceTree = "<group>"; };
 		4F74820213C9E1A800F9526F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Hearing_TestViewController.xib; sourceTree = "<group>"; };
+		4F81225413D0BAC800CE1BA4 /* HtWaveformPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HtWaveformPlayer.h; path = Classes/HtWaveformPlayer.h; sourceTree = "<group>"; };
+		4F81225513D0BAC800CE1BA4 /* HtWaveformPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HtWaveformPlayer.m; path = Classes/HtWaveformPlayer.m; sourceTree = "<group>"; };
+		4F81225F13D0DF2900CE1BA4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 				4F7481EA13C9E1A800F9526F /* UIKit.framework in Frameworks */,
 				4F7481EC13C9E1A800F9526F /* Foundation.framework in Frameworks */,
 				4F7481EE13C9E1A800F9526F /* CoreGraphics.framework in Frameworks */,
+				4F81226013D0DF2900CE1BA4 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +58,7 @@
 		4F7481DA13C9E1A800F9526F = {
 			isa = PBXGroup;
 			children = (
+				4F81225F13D0DF2900CE1BA4 /* AudioToolbox.framework */,
 				4F7481EF13C9E1A800F9526F /* Hearing Test */,
 				4F7481E813C9E1A800F9526F /* Frameworks */,
 				4F7481E613C9E1A800F9526F /* Products */,
@@ -79,6 +86,7 @@
 		4F7481EF13C9E1A800F9526F /* Hearing Test */ = {
 			isa = PBXGroup;
 			children = (
+				4F81225213D0BA8800CE1BA4 /* Classes */,
 				4F7481F813C9E1A800F9526F /* Hearing_TestAppDelegate.h */,
 				4F7481F913C9E1A800F9526F /* Hearing_TestAppDelegate.m */,
 				4F7481FB13C9E1A800F9526F /* MainWindow.xib */,
@@ -99,6 +107,15 @@
 				4F7481F613C9E1A800F9526F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F81225213D0BA8800CE1BA4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4F81225413D0BAC800CE1BA4 /* HtWaveformPlayer.h */,
+				4F81225513D0BAC800CE1BA4 /* HtWaveformPlayer.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +184,7 @@
 				4F7481F713C9E1A800F9526F /* main.m in Sources */,
 				4F7481FA13C9E1A800F9526F /* Hearing_TestAppDelegate.m in Sources */,
 				4F74820013C9E1A800F9526F /* Hearing_TestViewController.m in Sources */,
+				4F81225613D0BAC800CE1BA4 /* HtWaveformPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +297,7 @@
 				4F74820813C9E1A800F9526F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

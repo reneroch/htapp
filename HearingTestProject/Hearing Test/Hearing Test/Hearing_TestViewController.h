@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HtWaveformPlayer.h"
 
 @interface Hearing_TestViewController : UIViewController {
+    IBOutlet UIButton *playButton;
+    IBOutlet UISlider *_frequencySlider;
+    IBOutlet UILabel *_frequencyLabel;
     
+    HtWaveformPlayer *_wPlayer;
 }
+
+@property (nonatomic, retain) HtWaveformPlayer* wPlayer;
+
+-(IBAction)play:(id)sender;
+-(void)stop;
+
+-(IBAction)frequencyChanged:(id)sender;
 
 @end
