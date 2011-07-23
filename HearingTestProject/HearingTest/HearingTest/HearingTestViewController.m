@@ -53,18 +53,25 @@
 {
     playButton.enabled= NO;     // prevent play while already playing
     
-    float signalDuration= 5.0;      // [seconds]
+    float signalDuration= 4.0;      // [seconds]
     long ndata= signalDuration * _wPlayer.sampleRate;    // sample rate is samples per second
     float wave[ndata];
     //    float frequency= 1000;  // [Hz]
     float frequency= _frequencySlider.value;
-    float amplitude= 0.25;
+    float frequency2= _frequencySlider.value * 1.002;
+    float amplitude= 0.2;
     float t;                // time
     
+    float k = 3.99;
+    float x= 0.123345;
     float period= 1.0 / frequency;
-    for (long i= 0;i<ndata;i++) {
+    float period2= 1.0 / frequency2;
+    for (long i= 0;    i<ndata;    i++) {
         t= (float)i / _wPlayer.sampleRate;
-        wave[i]= amplitude * sin(2.0 * M_PI * t/period);
+//        wave[i]= amplitude * sin(2.0 * M_PI * t/period);
+        x= k * x * (1.0 - x);
+        wave[i]= amplitude * x;
+        
     }
     
     [_wPlayer setWaveform:wave dataCount:ndata];
