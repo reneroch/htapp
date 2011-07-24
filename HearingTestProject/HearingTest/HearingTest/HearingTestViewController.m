@@ -51,27 +51,22 @@
 
 -(IBAction)play:(id)sender
 {
-    playButton.enabled= NO;     // prevent play while already playing
+    _playButton.enabled= NO;     // prevent play while already playing
     
     float signalDuration= 4.0;      // [seconds]
     long ndata= signalDuration * _wPlayer.sampleRate;    // sample rate is samples per second
     float wave[ndata];
     //    float frequency= 1000;  // [Hz]
     float frequency= _frequencySlider.value;
-    float frequency2= _frequencySlider.value * 1.002;
+  //  float frequency2= _frequencySlider.value * 1.002;
     float amplitude= 0.2;
     float t;                // time
     
-    float k = 3.99;
-    float x= 0.123345;
     float period= 1.0 / frequency;
-    float period2= 1.0 / frequency2;
+  //  float period2= 1.0 / frequency2;
     for (long i= 0;    i<ndata;    i++) {
         t= (float)i / _wPlayer.sampleRate;
-//        wave[i]= amplitude * sin(2.0 * M_PI * t/period);
-        x= k * x * (1.0 - x);
-        wave[i]= amplitude * x;
-        
+        wave[i]= amplitude * sin(2.0 * M_PI * t/period);
     }
     
     [_wPlayer setWaveform:wave dataCount:ndata];
@@ -84,8 +79,29 @@
 -(void)stop
 {
     [self.wPlayer stop];
-    playButton.enabled= YES;
+    _playButton.enabled= YES;
 }
+
+-(IBAction)resetViewBackgroundColor
+{
+    _hannahView.backgroundColor= [UIColor colorWithRed:164.0/255 green:210.0/255 blue:255/255 alpha:1.0];
+}
+
+-(IBAction)amButtonClicked:(id)sender
+{
+    _hannahView.backgroundColor= [UIColor redColor];
+    [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+
+}
+
+-(IBAction)unmodButtonClicked:(id)sender
+{
+    
+    _hannahView.backgroundColor= [UIColor greenColor];
+    [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+
+}
+
 
 -(IBAction)frequencyChanged:(id)sender
 {

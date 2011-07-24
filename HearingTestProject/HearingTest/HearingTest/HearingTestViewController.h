@@ -9,9 +9,12 @@
 #import "HtWaveformPlayer.h"
 
 @interface HearingTestViewController : UIViewController {
-    IBOutlet UIButton *playButton;
+    IBOutlet UIButton *_playButton;
     IBOutlet UISlider *_frequencySlider;
     IBOutlet UILabel *_frequencyLabel;
+    IBOutlet UIButton *_amButton;
+    IBOutlet UIButton *_unmodButton;
+    IBOutlet UIView *_hannahView;
     
     HtWaveformPlayer *_wPlayer;
 }
@@ -21,6 +24,9 @@
 -(IBAction)play:(id)sender;
 -(void)stop;
 
+-(IBAction)amButtonClicked:(id)sender;
+-(IBAction)unmodButtonClicked:(id)sender;
+-(IBAction)resetViewBackgroundColor;
 -(IBAction)frequencyChanged:(id)sender;
 
 @end
