@@ -73,6 +73,8 @@
     
     [_wPlayer play];
     [self performSelector:@selector(stop) withObject:nil afterDelay:signalDuration + 0.1];
+    _clickLabel.text= [NSString stringWithFormat:@"Play Button Clicked"];
+
     
 }
 

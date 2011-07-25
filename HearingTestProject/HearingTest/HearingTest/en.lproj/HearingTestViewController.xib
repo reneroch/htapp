@@ -96,7 +96,7 @@
 						<string key="NSFrame">{{20, 286}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="327266067"/>
+						<reference key="NSNextKeyView" ref="818733767"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -158,10 +158,10 @@
 						<reference key="IBUINormalTitleColor" ref="106311488"/>
 						<reference key="IBUINormalTitleShadowColor" ref="685776086"/>
 					</object>
-					<object class="IBUILabel" id="327266067">
+					<object class="IBUILabel" id="818733767">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 404}, {83, 36}}</string>
+						<string key="NSFrame">{{20, 366}, {260, 74}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -287,14 +287,6 @@
 					<int key="connectionID">26</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">_clickIndicator</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="327266067"/>
-					</object>
-					<int key="connectionID">28</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">clickLabelChanged:</string>
 						<reference key="source" ref="914509182"/>
@@ -311,6 +303,14 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">30</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_clickLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="818733767"/>
+					</object>
+					<int key="connectionID">31</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -343,7 +343,7 @@
 							<reference ref="34023659"/>
 							<reference ref="322447094"/>
 							<reference ref="914509182"/>
-							<reference ref="327266067"/>
+							<reference ref="818733767"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -374,7 +374,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">27</int>
-						<reference key="object" ref="327266067"/>
+						<reference key="object" ref="818733767"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</object>
@@ -422,7 +422,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">30</int>
+			<int key="maxID">32</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
