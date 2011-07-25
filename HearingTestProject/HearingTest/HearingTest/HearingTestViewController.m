@@ -84,13 +84,19 @@
 
 -(IBAction)resetViewBackgroundColor
 {
-    _hannahView.backgroundColor= [UIColor colorWithRed:164.0/255 green:210.0/255 blue:255/255 alpha:1.0];
+    _hannahView.backgroundColor= [UIColor colorWithRed:164.0/255 green:210./255 blue:255/255 alpha:1.0];
+}
+
+-(IBAction)clickLabelChanged:(id)sender
+{
+    _clickLabel.text= [NSString stringWithFormat:@""];
 }
 
 -(IBAction)amButtonClicked:(id)sender
 {
     _hannahView.backgroundColor= [UIColor redColor];
     [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+    _clickLabel.text= [NSString stringWithFormat:@"AM Button Clicked"];
 
 }
 
@@ -99,6 +105,8 @@
     
     _hannahView.backgroundColor= [UIColor greenColor];
     [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+    _clickLabel.text= [NSString stringWithFormat:@"Unmodulated Button Clicked"];
+
 
 }
 

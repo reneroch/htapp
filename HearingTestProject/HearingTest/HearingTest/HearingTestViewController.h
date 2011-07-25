@@ -15,6 +15,7 @@
     IBOutlet UIButton *_amButton;
     IBOutlet UIButton *_unmodButton;
     IBOutlet UIView *_hannahView;
+    IBOutlet UILabel *_clickLabel;
     
     HtWaveformPlayer *_wPlayer;
 }
@@ -28,5 +29,6 @@
 -(IBAction)unmodButtonClicked:(id)sender;
 -(IBAction)resetViewBackgroundColor;
 -(IBAction)frequencyChanged:(id)sender;
+-(IBAction)clickLabelChanged:(id)sender;
 
 @end
