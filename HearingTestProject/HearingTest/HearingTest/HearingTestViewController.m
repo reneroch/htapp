@@ -78,6 +78,37 @@
     
 }
 
+-(IBAction)play2:(id)sender
+{
+    _playButton.enabled= NO;     // prevent play while already playing
+    
+    float signalDuration= 4.0;      // [seconds]
+    long ndata= signalDuration * _wPlayer.sampleRate;    // sample rate is samples per second
+    float wave[ndata];
+    //    float frequency= 1000;  // [Hz]
+    float frequency= _frequencySlider.value;
+    float frequency2= _frequencySlider.value * 1.002;
+    float amplitude= 0.2;
+    float t;                // time
+    
+    float period= 1.0 / frequency;
+    float period2= 1.0 / frequency2;
+    for (long i= 0;    i<ndata;    i++) {
+        t= (float)i / _wPlayer.sampleRate;
+        wave[i]= amplitude * sin(2.0 * M_PI * t/period) + amplitude * sin(2.0 * M_PI * t/period2);
+    }
+    
+    [_wPlayer setWaveform:wave dataCount:ndata];
+    
+    [_wPlayer play];
+    [self performSelector:@selector(stop) withObject:nil afterDelay:signalDuration + 0.1];
+    _clickLabel.text= [NSString stringWithFormat:@"Play Button Clicked"];
+    
+ 
+}
+
+// - if (rand % 2) { then talk about period numbers} : returns a random integer; must turn into a zero or a one; 
+
 -(void)stop
 {
     [self.wPlayer stop];

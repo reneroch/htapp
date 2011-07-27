@@ -16,6 +16,7 @@
     IBOutlet UIButton *_unmodButton;
     IBOutlet UIView *_hannahView;
     IBOutlet UILabel *_clickLabel;
+    IBOutlet UIButton *_playButton2;
     
     HtWaveformPlayer *_wPlayer;
 }
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) HtWaveformPlayer* wPlayer;
 
 -(IBAction)play:(id)sender;
+-(IBAction)play2:(id)sender;
 -(void)stop;
 
 -(IBAction)amButtonClicked:(id)sender;
