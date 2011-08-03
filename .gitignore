@@ -1,6 +1,8 @@
 build/
-
+hannah.xcuserdatad/
 *~
+
+.DS_Store
 
 
 Breakpoints.xcbkptlist
