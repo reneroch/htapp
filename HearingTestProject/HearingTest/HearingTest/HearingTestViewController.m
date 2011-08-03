@@ -32,6 +32,9 @@
     [super viewDidLoad];
     
     _wPlayer= [[HtWaveformPlayer alloc] init];
+    _clickLabel.text= @"";
+    srand ( time(NULL) );
+
 }
 
 - (void)viewDidUnload
@@ -53,17 +56,25 @@
 {
     _playButton.enabled= NO;     // prevent play while already playing
     
-    float signalDuration= 4.0;      // [seconds]
+    float signalDuration= 1.0;      // [seconds]
     long ndata= signalDuration * _wPlayer.sampleRate;    // sample rate is samples per second
     float wave[ndata];
     //    float frequency= 1000;  // [Hz]
-    float frequency= _frequencySlider.value;
-  //  float frequency2= _frequencySlider.value * 1.002;
+    float frequency;
+    //  float frequency2= _frequencySlider.value * 1.002;
     float amplitude= 0.2;
     float t;                // time
     
+    if (rand() %2 == 0){
+        frequency= 1500;
+        soundtype= 1;
+    } else {
+        frequency= 5000;
+        soundtype= 2;
+    }
+    
     float period= 1.0 / frequency;
-  //  float period2= 1.0 / frequency2;
+    //  float period2= 1.0 / frequency2;
     for (long i= 0;    i<ndata;    i++) {
         t= (float)i / _wPlayer.sampleRate;
         wave[i]= amplitude * sin(2.0 * M_PI * t/period);
@@ -73,41 +84,13 @@
     
     [_wPlayer play];
     [self performSelector:@selector(stop) withObject:nil afterDelay:signalDuration + 0.1];
-    _clickLabel.text= [NSString stringWithFormat:@"Play Button Clicked"];
-
+    _clickLabel.text= [NSString stringWithFormat:@"Choose Sound Type"];
+    
     
 }
 
--(IBAction)play2:(id)sender
-{
-    _playButton.enabled= NO;     // prevent play while already playing
-    
-    float signalDuration= 4.0;      // [seconds]
-    long ndata= signalDuration * _wPlayer.sampleRate;    // sample rate is samples per second
-    float wave[ndata];
-    //    float frequency= 1000;  // [Hz]
-    float frequency= _frequencySlider.value;
-    float frequency2= _frequencySlider.value * 1.002;
-    float amplitude= 0.2;
-    float t;                // time
-    
-    float period= 1.0 / frequency;
-    float period2= 1.0 / frequency2;
-    for (long i= 0;    i<ndata;    i++) {
-        t= (float)i / _wPlayer.sampleRate;
-        wave[i]= amplitude * sin(2.0 * M_PI * t/period) + amplitude * sin(2.0 * M_PI * t/period2);
-    }
-    
-    [_wPlayer setWaveform:wave dataCount:ndata];
-    
-    [_wPlayer play];
-    [self performSelector:@selector(stop) withObject:nil afterDelay:signalDuration + 0.1];
-    _clickLabel.text= [NSString stringWithFormat:@"Play Button Clicked"];
-    
- 
-}
 
-// - if (rand % 2) { then talk about period numbers} : returns a random integer; must turn into a zero or a one; 
+
 
 -(void)stop
 {
@@ -120,34 +103,36 @@
     _hannahView.backgroundColor= [UIColor colorWithRed:164.0/255 green:210./255 blue:255/255 alpha:1.0];
 }
 
--(IBAction)clickLabelChanged:(id)sender
-{
-    _clickLabel.text= [NSString stringWithFormat:@""];
-}
 
 -(IBAction)amButtonClicked:(id)sender
 {
-    _hannahView.backgroundColor= [UIColor redColor];
-    [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
-    _clickLabel.text= [NSString stringWithFormat:@"AM Button Clicked"];
-
+    NSLog(@"%s\n",__FUNCTION__);
+    if (soundtype == 1) {
+        _hannahView.backgroundColor= [UIColor greenColor];
+        [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+        _clickLabel.text= [NSString stringWithFormat:@"Correct"];
+    } else {
+        _hannahView.backgroundColor= [UIColor redColor];
+        [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+        _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
+    }
 }
 
 -(IBAction)unmodButtonClicked:(id)sender
-{
+{   
+    NSLog(@"%s\n",__FUNCTION__);
+    if (soundtype == 2) {
+        _hannahView.backgroundColor= [UIColor greenColor];
+        [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+        _clickLabel.text= [NSString stringWithFormat:@"Correct"];
+    } else {
+        _hannahView.backgroundColor= [UIColor redColor];
+        [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
+        _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
+    }
     
-    _hannahView.backgroundColor= [UIColor greenColor];
-    [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
-    _clickLabel.text= [NSString stringWithFormat:@"Unmodulated Button Clicked"];
-
-
 }
 
 
--(IBAction)frequencyChanged:(id)sender
-{
-    UISlider *slider= (UISlider*)sender;
-    _frequencyLabel.text= [NSString stringWithFormat:@"%.0f Hz", slider.value];
-}
 
 @end
