@@ -15,6 +15,7 @@
     IBOutlet UIView *_hannahView;
     IBOutlet UILabel *_clickLabel;
     
+    FILE * soundData;
     int soundtype;
     HtWaveformPlayer *_wPlayer;
     

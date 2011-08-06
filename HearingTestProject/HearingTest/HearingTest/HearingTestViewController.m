@@ -30,7 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
+    soundData = fopen ("soundappfile.txt", "a");
     _wPlayer= [[HtWaveformPlayer alloc] init];
     _clickLabel.text= @"";
     srand ( time(NULL) );
@@ -44,6 +45,7 @@
     // e.g. self.myOutlet = nil;
     
     self.wPlayer= nil;
+    fclose (soundData);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -111,10 +113,13 @@
         _hannahView.backgroundColor= [UIColor greenColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
         _clickLabel.text= [NSString stringWithFormat:@"Correct"];
+        fprintf (soundData, "A Hit");
     } else {
         _hannahView.backgroundColor= [UIColor redColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
         _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
+        fprintf (soundData, "False Alarm");
+
     }
 }
 
@@ -125,14 +130,16 @@
         _hannahView.backgroundColor= [UIColor greenColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
         _clickLabel.text= [NSString stringWithFormat:@"Correct"];
+        fprintf (soundData, "Correct Rejection");
     } else {
         _hannahView.backgroundColor= [UIColor redColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
         _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
+        fprintf (soundData, "A Miss");
+
     }
     
 }
-
 
 
 @end
