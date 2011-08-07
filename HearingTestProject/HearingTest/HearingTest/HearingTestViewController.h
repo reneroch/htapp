@@ -31,4 +31,9 @@
 -(IBAction)unmodButtonClicked:(id)sender;
 -(IBAction)resetViewBackgroundColor;
 
+-(void)closeDataFile;
+// make method for openDataFile
+// then in HearingTestAppDelegate, when app becomes active / enters background, send message to this object to open data file / close data file
+
+
 @end

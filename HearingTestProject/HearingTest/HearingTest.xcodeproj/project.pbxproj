@@ -464,6 +464,7 @@
 				4F08672313D32EA50080EF57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F08672413D32EA50080EF57 /* Build configuration list for PBXNativeTarget "HearingTestTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +473,7 @@
 				4F08672613D32EA50080EF57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

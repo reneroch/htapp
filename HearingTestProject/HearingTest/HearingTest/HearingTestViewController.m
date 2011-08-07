@@ -30,8 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
-    soundData = fopen ("soundappfile.txt", "a");
+    
+    // some iOS specific code to create file path:
+    NSArray *paths= NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path= [paths objectAtIndex:0];
+    NSString *fullFilePath= [path stringByAppendingPathComponent:@"soundappfile.txt"];
+
+    soundData = fopen ([fullFilePath UTF8String], "a");
+    assert(soundData != NULL);              // fail right here if file was not opened as expected.
+    NSLog(@"Data file path: %@", fullFilePath);
     _wPlayer= [[HtWaveformPlayer alloc] init];
     _clickLabel.text= @"";
     srand ( time(NULL) );
@@ -45,7 +52,11 @@
     // e.g. self.myOutlet = nil;
     
     self.wPlayer= nil;
-    fclose (soundData);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -91,9 +102,6 @@
     
 }
 
-
-
-
 -(void)stop
 {
     [self.wPlayer stop];
@@ -119,7 +127,6 @@
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
         _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
         fprintf (soundData, "False Alarm");
-
     }
 }
 
@@ -136,10 +143,14 @@
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
         _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
         fprintf (soundData, "A Miss");
-
     }
-    
 }
+
+-(void)closeDataFile
+{
+    fclose (soundData);    
+}
+
 
 
 @end
