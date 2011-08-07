@@ -31,18 +31,22 @@
 {
     [super viewDidLoad];
     
+    _wPlayer= [[HtWaveformPlayer alloc] init];
+    _clickLabel.text= @"";
+    srand ( time(NULL) );
+    
+}
+
+-(void)openDataFile
+{
     // some iOS specific code to create file path:
     NSArray *paths= NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path= [paths objectAtIndex:0];
     NSString *fullFilePath= [path stringByAppendingPathComponent:@"soundappfile.txt"];
-
+    
     soundData = fopen ([fullFilePath UTF8String], "a");
     assert(soundData != NULL);              // fail right here if file was not opened as expected.
     NSLog(@"Data file path: %@", fullFilePath);
-    _wPlayer= [[HtWaveformPlayer alloc] init];
-    _clickLabel.text= @"";
-    srand ( time(NULL) );
-
 }
 
 - (void)viewDidUnload
@@ -56,7 +60,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -98,6 +102,8 @@
     [_wPlayer play];
     [self performSelector:@selector(stop) withObject:nil afterDelay:signalDuration + 0.1];
     _clickLabel.text= [NSString stringWithFormat:@"Choose Sound Type"];
+    _amButton.enabled= YES;
+    _unmodButton.enabled= YES;
     
     
 }
@@ -105,7 +111,6 @@
 -(void)stop
 {
     [self.wPlayer stop];
-    _playButton.enabled= YES;
 }
 
 -(IBAction)resetViewBackgroundColor
@@ -117,32 +122,47 @@
 -(IBAction)amButtonClicked:(id)sender
 {
     NSLog(@"%s\n",__FUNCTION__);
+    _playButton.enabled= YES;
+    _amButton.enabled= NO;
+    _unmodButton.enabled= NO;
     if (soundtype == 1) {
         _hannahView.backgroundColor= [UIColor greenColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
-        _clickLabel.text= [NSString stringWithFormat:@"Correct"];
-        fprintf (soundData, "A Hit");
+        _clickLabel.text= [NSString stringWithFormat:@"Correct\n"];
+        fprintf (soundData, "A Hit\n");
+        hitCount++;
+        _hitLabel.text= [NSString stringWithFormat:@"Hits: %d", hitCount];
     } else {
         _hannahView.backgroundColor= [UIColor redColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
-        _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
-        fprintf (soundData, "False Alarm");
+        _clickLabel.text= [NSString stringWithFormat:@"Incorrect\n"];
+        fprintf (soundData, "False Alarm\n");
+        falseAlarmCount++;
+        _falseAlarmLabel.text= [NSString stringWithFormat:@"FAs: %d", falseAlarmCount];
+        
     }
 }
 
 -(IBAction)unmodButtonClicked:(id)sender
 {   
     NSLog(@"%s\n",__FUNCTION__);
+    _playButton.enabled= YES;
+    _amButton.enabled= NO;
+    _unmodButton.enabled= NO;
     if (soundtype == 2) {
         _hannahView.backgroundColor= [UIColor greenColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
-        _clickLabel.text= [NSString stringWithFormat:@"Correct"];
-        fprintf (soundData, "Correct Rejection");
+        _clickLabel.text= [NSString stringWithFormat:@"Correct\n"];
+        fprintf (soundData, "Correct Rejection\n");
+        correctRejectionCount++;
+        _correctRejectionLabel.text= [NSString stringWithFormat:@"CRs: %d", correctRejectionCount];
     } else {
         _hannahView.backgroundColor= [UIColor redColor];
         [self performSelector:@selector(resetViewBackgroundColor) withObject:nil afterDelay: 1.5];
-        _clickLabel.text= [NSString stringWithFormat:@"Incorrect"];
-        fprintf (soundData, "A Miss");
+        _clickLabel.text= [NSString stringWithFormat:@"Incorrect\n"];
+        fprintf (soundData, "A Miss\n");
+        missCount++;
+        _missLabel.text= [NSString stringWithFormat:@"Misses: %d", missCount];
     }
 }
 

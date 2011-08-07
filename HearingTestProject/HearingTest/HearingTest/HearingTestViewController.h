@@ -14,9 +14,17 @@
     IBOutlet UIButton *_unmodButton;
     IBOutlet UIView *_hannahView;
     IBOutlet UILabel *_clickLabel;
+    IBOutlet UILabel *_hitLabel;
+    IBOutlet UILabel *_falseAlarmLabel;
+    IBOutlet UILabel *_missLabel;
+    IBOutlet UILabel *_correctRejectionLabel;
     
     FILE * soundData;
     int soundtype;
+    int hitCount;
+    int missCount;
+    int falseAlarmCount;
+    int correctRejectionCount;
     HtWaveformPlayer *_wPlayer;
     
     
@@ -32,8 +40,8 @@
 -(IBAction)resetViewBackgroundColor;
 
 -(void)closeDataFile;
-// make method for openDataFile
-// then in HearingTestAppDelegate, when app becomes active / enters background, send message to this object to open data file / close data file
+-(void)openDataFile;
+
 
 
 @end
