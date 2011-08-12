@@ -42,6 +42,8 @@
 -(void)closeDataFile;
 -(void)openDataFile;
 
+-(float)randomNumber;
+
 
 
 @end

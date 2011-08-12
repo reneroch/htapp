@@ -35,6 +35,27 @@
     _clickLabel.text= @"";
     srand ( time(NULL) );
     
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    NSLog(@"%f\n", [self randomNumber]);
+    
 }
 
 -(void)openDataFile
@@ -69,6 +90,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(float)randomNumber
+{
+    float x;
+    rand();
+    x= ((rand() - (RAND_MAX/2.0))/(RAND_MAX/2.0));
+    return x;
+}
+
 -(IBAction)play:(id)sender
 {
     _playButton.enabled= NO;     // prevent play while already playing
@@ -78,24 +107,30 @@
     float wave[ndata];
     //    float frequency= 1000;  // [Hz]
     float frequency;
-    //  float frequency2= _frequencySlider.value * 1.002;
-    float amplitude= 0.2;
+    float sineAmplitude= 0.1;
+    float noiseAmplitude= 0.2;
     float t;                // time
     
+    frequency= 2000;
+    float period= 1.0 / frequency;
+
     if (rand() %2 == 0){
-        frequency= 1500;
-        soundtype= 1;
+        for (long i= 0;    i<ndata;    i++) {
+            t= (float)i / _wPlayer.sampleRate;
+            wave[i]= sineAmplitude * sin(2.0 * M_PI * t/period) + noiseAmplitude * [self randomNumber];
+            // wave[i]= amplitude * sin(2.0 * M_PI * t/period);
+            soundtype= 1;
+        }
     } else {
-        frequency= 5000;
-        soundtype= 2;
+        for (long i= 0;    i<ndata;    i++) {
+            t= (float)i / _wPlayer.sampleRate;
+            wave[i]= noiseAmplitude * [self randomNumber];
+            soundtype= 2;
+        }
     }
     
-    float period= 1.0 / frequency;
-    //  float period2= 1.0 / frequency2;
-    for (long i= 0;    i<ndata;    i++) {
-        t= (float)i / _wPlayer.sampleRate;
-        wave[i]= amplitude * sin(2.0 * M_PI * t/period);
-    }
+    
+    
     
     [_wPlayer setWaveform:wave dataCount:ndata];
     
@@ -170,6 +205,8 @@
 {
     fclose (soundData);    
 }
+
+
 
 
 

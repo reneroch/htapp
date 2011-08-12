@@ -77,7 +77,7 @@
 					<object class="IBUIButton" id="795056305">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{190, 172}, {110, 55}}</string>
+						<string key="NSFrame">{{186, 172}, {118, 55}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSNextKeyView" ref="97991439"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -91,7 +91,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">unmodulated</string>
+						<string key="IBUINormalTitle">Noise Alone</string>
 						<reference key="IBUIHighlightedTitleColor" ref="423709313"/>
 						<reference key="IBUINormalTitleColor" ref="106311488"/>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="685776086">
@@ -102,7 +102,7 @@
 					<object class="IBUIButton" id="914509182">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 172}, {110, 55}}</string>
+						<string key="NSFrame">{{17, 172}, {118, 55}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSNextKeyView" ref="795056305"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -116,7 +116,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="440038623"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">AM</string>
+						<string key="IBUINormalTitle">Tone + Noise</string>
 						<reference key="IBUIHighlightedTitleColor" ref="423709313"/>
 						<reference key="IBUINormalTitleColor" ref="106311488"/>
 						<reference key="IBUINormalTitleShadowColor" ref="685776086"/>
