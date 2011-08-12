@@ -90,6 +90,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+// return random number in range [-1, +1]
 -(float)randomNumber
 {
     float x;
@@ -107,12 +108,15 @@
     float wave[ndata];
     //    float frequency= 1000;  // [Hz]
     float frequency;
-    float sineAmplitude= 0.1;
-    float noiseAmplitude= 0.2;
+    float sineAmplitude= 0.04;
+    float noiseAmplitude= 0.3;
     float t;                // time
     
     frequency= 2000;
     float period= 1.0 / frequency;
+    
+    sineAmplitude += 0.7 * sineAmplitude*[self randomNumber];   // +- 70% variation of sine amplitude
+    frequency += 0.3 * frequency * [self randomNumber];         // +- 30% variation of sine frequency
 
     if (rand() %2 == 0){
         for (long i= 0;    i<ndata;    i++) {
