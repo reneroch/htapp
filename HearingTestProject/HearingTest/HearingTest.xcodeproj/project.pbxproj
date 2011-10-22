@@ -24,8 +24,8 @@
 		4F08671E13D32EA50080EF57 /* HearingTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F08671D13D32EA50080EF57 /* HearingTestTests.m */; };
 		4F08673213D32F2B0080EF57 /* HtWaveformPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F08673113D32F2B0080EF57 /* HtWaveformPlayer.m */; };
 		4F08673413D330130080EF57 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F08673313D330130080EF57 /* AudioToolbox.framework */; };
-		BB2E7F72145305040025A923 /* Eye Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E7F71145305040025A923 /* Eye Icon.png */; };
-		BB2E7F75145308590025A923 /* Eye Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E7F74145308590025A923 /* Eye Icon.png */; };
+		BB2E7F7914530AAF0025A923 /* Eye Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E7F7814530AAF0025A923 /* Eye Icon.png */; };
+		BB2E7F7B14530AC10025A923 /* Eye Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E7F7A14530AC10025A923 /* Eye Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,8 @@
 		4F08673013D32F2B0080EF57 /* HtWaveformPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HtWaveformPlayer.h; path = Classes/HtWaveformPlayer.h; sourceTree = "<group>"; };
 		4F08673113D32F2B0080EF57 /* HtWaveformPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HtWaveformPlayer.m; path = Classes/HtWaveformPlayer.m; sourceTree = "<group>"; };
 		4F08673313D330130080EF57 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		BB2E7F71145305040025A923 /* Eye Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Eye Icon.png"; path = "../../../../../dev/icons/exported/Eye Icon.png"; sourceTree = "<group>"; };
-		BB2E7F74145308590025A923 /* Eye Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Eye Icon.png"; sourceTree = "<group>"; };
+		BB2E7F7814530AAF0025A923 /* Eye Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Eye Icon.png"; path = "../../../Graphics/Eye Icon.png"; sourceTree = "<group>"; };
+		BB2E7F7A14530AC10025A923 /* Eye Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Eye Icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 		4F0866DF13D32EA40080EF57 = {
 			isa = PBXGroup;
 			children = (
-				BB2E7F74145308590025A923 /* Eye Icon.png */,
+				BB2E7F7A14530AC10025A923 /* Eye Icon.png */,
 				4F08673313D330130080EF57 /* AudioToolbox.framework */,
 				4F0866F413D32EA50080EF57 /* HearingTest */,
 				4F08671413D32EA50080EF57 /* HearingTestTests */,
@@ -144,7 +144,7 @@
 				4F0866F713D32EA50080EF57 /* InfoPlist.strings */,
 				4F0866FA13D32EA50080EF57 /* HearingTest-Prefix.pch */,
 				4F0866FB13D32EA50080EF57 /* main.m */,
-				BB2E7F71145305040025A923 /* Eye Icon.png */,
+				BB2E7F7814530AAF0025A923 /* Eye Icon.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -251,8 +251,8 @@
 				4F0866F913D32EA50080EF57 /* InfoPlist.strings in Resources */,
 				4F08670213D32EA50080EF57 /* MainWindow.xib in Resources */,
 				4F08670813D32EA50080EF57 /* HearingTestViewController.xib in Resources */,
-				BB2E7F72145305040025A923 /* Eye Icon.png in Resources */,
-				BB2E7F75145308590025A923 /* Eye Icon.png in Resources */,
+				BB2E7F7914530AAF0025A923 /* Eye Icon.png in Resources */,
+				BB2E7F7B14530AC10025A923 /* Eye Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
