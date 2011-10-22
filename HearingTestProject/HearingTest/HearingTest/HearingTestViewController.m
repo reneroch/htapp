@@ -108,8 +108,8 @@
     float wave[ndata];
     //    float frequency= 1000;  // [Hz]
     float frequency;
-    float sineAmplitude= 0.04;
-    float noiseAmplitude= 0.3;
+    float sineAmplitude= 0.07;
+    float noiseAmplitude= 0.25;
     float t;                // time
     
     frequency= 2000;
